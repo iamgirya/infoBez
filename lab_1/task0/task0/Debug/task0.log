@@ -1,0 +1,7 @@
+﻿  task0.cpp
+C:\Users\danek\Documents\GitHub\infobez\lab_1\task0\task0\task0.cpp(12,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_1\task0\task0\task0.cpp(25,23): warning C4018: <=: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_1\task0\task0\task0.cpp(38,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_1\task0\task0\task0.cpp(46,23): warning C4018: <=: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_1\task0\task0\task0.cpp(64,42): warning C4244: аргумент: преобразование "ll" в "const unsigned int", возможна потеря данных
+  task0.vcxproj -> C:\Users\danek\Documents\GitHub\infobez\lab_1\task0\Debug\task0.exe
