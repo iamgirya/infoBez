@@ -1,0 +1,8 @@
+﻿  task2_homework.cpp
+C:\Users\danek\Documents\GitHub\infobez\lab_1\task2_homework\task2_homework.cpp(31,27): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\danek\Documents\GitHub\infobez\lab_1\task2_homework\task2_homework.cpp(177,44): warning C4267: =: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+  task2_homework.vcxproj -> C:\Users\danek\Documents\GitHub\infobez\lab_1\task2_homework\x64\Debug\task2_homework.exe
