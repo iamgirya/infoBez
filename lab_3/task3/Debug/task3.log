@@ -1,0 +1,8 @@
+﻿  randomView.cpp
+C:\Users\danek\Documents\GitHub\infobez\lab_3\task3\randomView.cpp(15,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_3\task3\randomView.cpp(20,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_3\task3\randomView.cpp(34,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_3\task3\randomView.cpp(47,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_3\task3\randomView.cpp(72,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\danek\Documents\GitHub\infobez\lab_3\task3\randomView.cpp(84,20): warning C4018: <: несоответствие типов со знаком и без знака
+  task3.vcxproj -> C:\Users\danek\Documents\GitHub\infobez\lab_3\task3\Debug\task3.exe
