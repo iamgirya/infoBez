@@ -51,8 +51,7 @@ int main()
 	do {
         for (int i = 0; i < n; i++)
             cout << a[i];
-        cout << endl;
+        output << endl;
         coumt++;
 	} while (NextSet(a, n, n));
-    cout << coumt;
 } 
