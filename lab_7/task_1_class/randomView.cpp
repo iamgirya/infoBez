@@ -137,19 +137,19 @@ void interpreter()
 
 	temp_N_M_A.erase(temp_N_M_A.begin(), temp_N_M_A.begin() + 2);
 
-	vector < vector <string> > RW_FROM_FILE_RZLT = vector < vector <string> >();
+	vector < vector <string> > ruleMatr = vector < vector <string> >();
 	string input = "";
 	regex re("[ ]");
 
 	for (int i = 0; i < n; i++) // субъекты
 	{
-		RW_FROM_FILE_RZLT.push_back(vector<string>());
+		ruleMatr.push_back(vector<string>());
 		input = temp_N_M_A[i];
 		sregex_token_iterator first{ input.begin(), input.end(), re, -1 }, last;
 		vector<string> tokens{ first, last };
 		for (int j = 0; j < m; j++) // объекты
 		{
-			RW_FROM_FILE_RZLT[i].push_back(tokens[j]);
+			ruleMatr[i].push_back(tokens[j]);
 		}
 	}
 
@@ -158,7 +158,7 @@ void interpreter()
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++)
-			cout << RW_FROM_FILE_RZLT[i][j] << ' ';
+			cout << ruleMatr[i][j] << ' ';
 		cout << endl;
 	}
 
@@ -206,18 +206,18 @@ void interpreter()
 			cout << i << " " << "cco" << endl;
 			int ind = stoi(structed_CMD[i][1]);
 			ind--;
-			if (!(RW_FROM_FILE_RZLT.size() == 0 || RW_FROM_FILE_RZLT[0].size() == 0))
+			if (!(ruleMatr.size() == 0 || ruleMatr[0].size() == 0))
 			{
-				if (RW_FROM_FILE_RZLT[0].size() >= ind) {
-					for (int d = 0; d < RW_FROM_FILE_RZLT.size(); d++)
+				if (ruleMatr[0].size() >= ind) {
+					for (int d = 0; d < ruleMatr.size(); d++)
 					{
-						RW_FROM_FILE_RZLT[d].insert(RW_FROM_FILE_RZLT[d].begin() + ind, "R");
+						ruleMatr[d].insert(ruleMatr[d].begin() + ind, "R");
 					}
 				}
 				else {
-					for (int d = 0; d < RW_FROM_FILE_RZLT.size(); d++)
+					for (int d = 0; d < ruleMatr.size(); d++)
 					{
-						RW_FROM_FILE_RZLT[d].push_back("R");
+						ruleMatr[d].push_back("R");
 					}
 				}
 			}
@@ -231,13 +231,13 @@ void interpreter()
 			cout << i << " " << "ccs" << endl;
 			int ind = stoi(structed_CMD[i][1]);
 			ind--;
-			vector <string> row = vector <string>(RW_FROM_FILE_RZLT[0].size(), "R");
-			if (!(RW_FROM_FILE_RZLT.size() == 0 || RW_FROM_FILE_RZLT[0].size() == 0))
+			vector <string> row = vector <string>(ruleMatr[0].size(), "R");
+			if (!(ruleMatr.size() == 0 || ruleMatr[0].size() == 0))
 			{
-				if (ind <= RW_FROM_FILE_RZLT.size())
-					RW_FROM_FILE_RZLT.insert(RW_FROM_FILE_RZLT.begin() + ind, row);
+				if (ind <= ruleMatr.size())
+					ruleMatr.insert(ruleMatr.begin() + ind, row);
 				else
-					RW_FROM_FILE_RZLT.push_back(row);
+					ruleMatr.push_back(row);
 			}
 			else {
 				cout << "выполнить команду невозможно, команда -" << structed_CMD[i][0] << endl;
@@ -250,11 +250,11 @@ void interpreter()
 			int ind = stoi(structed_CMD[i][1]);
 			ind--;
 
-			if (!(RW_FROM_FILE_RZLT.size() == 0 || RW_FROM_FILE_RZLT[0].size() <= ind))
+			if (!(ruleMatr.size() == 0 || ruleMatr[0].size() <= ind))
 			{
-				for (int d = 0; d < RW_FROM_FILE_RZLT.size(); d++)
+				for (int d = 0; d < ruleMatr.size(); d++)
 				{
-					RW_FROM_FILE_RZLT[d].erase(RW_FROM_FILE_RZLT[d].begin() + ind);
+					ruleMatr[d].erase(ruleMatr[d].begin() + ind);
 				}
 			}
 			else {
@@ -267,9 +267,9 @@ void interpreter()
 			cout << i << " " << "cds" << endl;
 			int ind = stoi(structed_CMD[i][1]);
 			ind--;
-			if (!(RW_FROM_FILE_RZLT.size() == 0 || RW_FROM_FILE_RZLT.size() <= ind))
+			if (!(ruleMatr.size() == 0 || ruleMatr.size() <= ind))
 			{
-				RW_FROM_FILE_RZLT.erase(RW_FROM_FILE_RZLT.begin() + ind);
+				ruleMatr.erase(ruleMatr.begin() + ind);
 			}
 			else {
 				cout << "выполнить команду невозможно, команда -" << structed_CMD[i][0] << endl;
@@ -283,7 +283,7 @@ void interpreter()
 			int ind_O = stoi(structed_CMD[i][2]);
 			ind_S--; ind_O--;
 
-			if (!(RW_FROM_FILE_RZLT.size() == 0 || RW_FROM_FILE_RZLT.size() <= ind_S || RW_FROM_FILE_RZLT[0].size() <= ind_O))
+			if (!(ruleMatr.size() == 0 || ruleMatr.size() <= ind_S || ruleMatr[0].size() <= ind_O))
 			{
 				string input2 = structed_CMD[i][0];
 				regex re2("cer = ");
@@ -305,9 +305,9 @@ void interpreter()
 				for (int inputInd = 0; inputInd < res.size(); inputInd++)
 				{
 					bool f = true;
-					for (int nowInd = 0; nowInd < RW_FROM_FILE_RZLT[ind_S][ind_O].size(); nowInd++)
+					for (int nowInd = 0; nowInd < ruleMatr[ind_S][ind_O].size(); nowInd++)
 					{
-						if (res[inputInd] == RW_FROM_FILE_RZLT[ind_S][ind_O][nowInd])
+						if (res[inputInd] == ruleMatr[ind_S][ind_O][nowInd])
 						{
 							f = false;
 							break;
@@ -315,7 +315,7 @@ void interpreter()
 					}
 					if (f)
 					{
-						RW_FROM_FILE_RZLT[ind_S][ind_O] += res[inputInd];
+						ruleMatr[ind_S][ind_O] += res[inputInd];
 					}
 				}
 
@@ -329,7 +329,7 @@ void interpreter()
 			int ind_S = stoi(structed_CMD[i][1]);
 			int ind_O = stoi(structed_CMD[i][2]);
 			ind_S--; ind_O--;
-			if (!(RW_FROM_FILE_RZLT.size() == 0 || RW_FROM_FILE_RZLT.size() <= ind_S || RW_FROM_FILE_RZLT[0].size() <= ind_O))
+			if (!(ruleMatr.size() == 0 || ruleMatr.size() <= ind_S || ruleMatr[0].size() <= ind_O))
 			{
 
 				string input2 = structed_CMD[i][0];
@@ -350,11 +350,11 @@ void interpreter()
 
 				for (int inputInd = 0; inputInd < res.size(); inputInd++)
 				{
-					for (int nowInd = 0; nowInd < RW_FROM_FILE_RZLT[ind_S][ind_O].size(); nowInd++)
+					for (int nowInd = 0; nowInd < ruleMatr[ind_S][ind_O].size(); nowInd++)
 					{
-						if (res[inputInd] == RW_FROM_FILE_RZLT[ind_S][ind_O][nowInd])
+						if (res[inputInd] == ruleMatr[ind_S][ind_O][nowInd])
 						{
-							RW_FROM_FILE_RZLT[ind_S][ind_O] = RW_FROM_FILE_RZLT[ind_S][ind_O].substr(0, nowInd) + RW_FROM_FILE_RZLT[ind_S][ind_O].substr(nowInd + 1, RW_FROM_FILE_RZLT[ind_S][ind_O].size() - nowInd - 1);
+							ruleMatr[ind_S][ind_O] = ruleMatr[ind_S][ind_O].substr(0, nowInd) + ruleMatr[ind_S][ind_O].substr(nowInd + 1, ruleMatr[ind_S][ind_O].size() - nowInd - 1);
 							break;
 						}
 					}
@@ -372,10 +372,10 @@ void interpreter()
 	if (output_rzlt.is_open())
 	{
 
-		for (int i = 0; i < RW_FROM_FILE_RZLT.size(); i++) // строки
+		for (int i = 0; i < ruleMatr.size(); i++) // строки
 		{
-			for (int j = 0; j < RW_FROM_FILE_RZLT[i].size(); j++) // столбцы
-				output_rzlt << RW_FROM_FILE_RZLT[i][j] << ' ';
+			for (int j = 0; j < ruleMatr[i].size(); j++) // столбцы
+				output_rzlt << ruleMatr[i][j] << ' ';
 			output_rzlt << endl;
 		}
 	}
