@@ -1,10 +1,5 @@
-﻿#include <math.h>
-#include <tuple>
-#include <vector>
-#include <stdio.h>
+﻿#include <vector>
 #include <algorithm>
-#include <queue>
-#include <string>
 #include <iostream>
 #include <fstream>
 using namespace std;
